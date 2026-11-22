@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0f1a16">
-<title>Zander Weekoverzicht</title>
+<title>Snoekbaars Weekoverzicht</title>
 <style>
 :root{--bg:#f2f5f3;--fg:#14211c;--mut:#5a6a63;--line:#d3dbd6;--card:#fff;--l:50%;--acc:#1f6f55}
 @media (prefers-color-scheme:dark){:root{--bg:#0f1a16;--fg:#e5eee9;--mut:#8fa199;--line:#25332d;--card:#16231e;--l:40%;--acc:#5cc5a0}}
@@ -40,7 +40,7 @@ button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 </head>
 <body>
 <main>
-  <h1>Zander, komende 7 dagen</h1>
+  <h1>Snoekbaars, komende 7 dagen</h1>
   <p class="sub">Score per uur van 0 tot 100, op basis van luchtdruk, licht, wind, bewolking, regen en maan.</p>
   <div class="tabs" id="tabs" role="group" aria-label="Water"></div>
   <div id="out" aria-live="polite"><p class="msg">Verwachting laden…</p></div>
@@ -187,7 +187,7 @@ function render(){
   });
   html += '<div class="detail" id="detail">Tik op een uur voor de details.</div>';
   html += '<div class="legend">laag<i></i>hoog <span>(streep onderaan = beste venster van 3 uur)</span></div>';
-  html += '<p class="note">Gegevens: Open-Meteo. De score is een inschatting op basis van algemene zanderkennis, geen garantie.</p>';
+  html += '<p class="note">Gegevens: Open-Meteo. De score is een inschatting op basis van algemene Snoekbaarskennis, geen garantie.</p>';
   var out = document.getElementById("out");
   out.innerHTML = html;
   out.onclick = function(e){
@@ -206,14 +206,14 @@ function buildTabs(){
     b.type = "button"; b.textContent = p.naam; b.setAttribute("aria-pressed", i === cur ? "true" : "false");
     b.onclick = function(){
       cur = i;
-      try { localStorage.setItem("zander-plek", String(i)); } catch (e) {}
+      try { localStorage.setItem("Snoekbaars-plek", String(i)); } catch (e) {}
       buildTabs(); load();
     };
     el.appendChild(b);
   });
 }
 
-try { var o = parseInt(localStorage.getItem("zander-plek"), 10); if (o >= 0 && o < PLEKKEN.length) cur = o; } catch (e) {}
+try { var o = parseInt(localStorage.getItem("Snoekbaars-plek"), 10); if (o >= 0 && o < PLEKKEN.length) cur = o; } catch (e) {}
 buildTabs();
 load();
 </script>
